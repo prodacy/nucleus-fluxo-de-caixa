@@ -18,11 +18,16 @@
             <span>{{ __('Dashboard') }}</span></a>
         </li>
 
+
         <!-- Divider -->
-        <hr class="sidebar-divider mb-0">
+        <hr class="sidebar-divider">
+         <!-- Heading -->
+        <div class="sidebar-heading">
+            {{ __('Cadastros') }}
+        </div>
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseNaoIndexados" aria-expanded="false" aria-controls="collapseNaoIndexados">
-                <i class="fas fa-dollar-sign"></i>
+                <i class="fas fa-dollar-sign ml-1 mr-2"></i>
                 <span>{{ __('Contas') }}</span>
             </a>
             <div id="collapseNaoIndexados" class="collapse m-0 p-0 ml-3 {{Request::is(['*/bills/*'])?'show':''}}" data-parent="#accordionSidebar">
@@ -49,25 +54,32 @@
             </div>
         </li>
 
+        <li class="nav-item {{ Nav::isRoute('admin.client.index') }}">
+            <a class="nav-link" href="{{ route('admin.client.index') }}">
+                <i class="fas fa-fw fa-user-tie"></i>
+                <span>{{ __('Clientes') }}</span>
+            </a>
+        </li>
+
 
         <!-- Heading -->
-        <div class="sidebar-heading">
-            {{ __('Settings') }}
+        <div class="sidebar-heading mt-3">
+            {{ __('Configurações') }}
         </div>
 
-        <!-- Nav Item - Profile -->
+        <!-- Nav Item - Meus dados -->
         <li class="nav-item {{ Nav::isRoute('profile') }}">
             <a class="nav-link" href="{{ route('profile') }}">
                 <i class="fas fa-fw fa-user"></i>
-                <span>{{ __('Profile') }}</span>
+                <span>{{ __('Meus dados') }}</span>
             </a>
         </li>
 
         <!-- Nav Item - About -->
         <li class="nav-item {{ Nav::isRoute('about') }}">
-            <a class="nav-link" href="{{ route('about') }}">
+            <a class="nav-link" href="#">
                 <i class="fas fa-fw fa-hands-helping"></i>
-                <span>{{ __('About') }}</span>
+                <span>{{ __('Sobre') }}</span>
             </a>
         </li>
 

@@ -13,23 +13,31 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Auth::routes();
 
-Route::get('/', function(){ return Redirect::route('admin.home'); });
+Route::get('/', function(){ return Redirect::route('pwa.home'); });
 Route::get('/home', function(){ return Redirect::route('admin.home'); });
 
-Route::middleware(['auth'])->group(function () {
 
-    Route::group(['prefix'=>'admin'],function(){
+Route::group(['prefix'=>'app'],function(){
+    Route::get('/', 'PwaController@index')->name('pwa.home');
+});
+
+
+Route::group(['prefix'=>'admin'],function(){
+
+    Auth::routes();
+
+    Route::middleware(['auth'])->group(function () {
 
         Route::get('/', 'HomeController@index')->name('admin.home');
 
         Route::group(['prefix'=>'bills'],function(){
 
+            // metodologia mais flexivel 
             Route::get('/all', [App\Http\Controllers\BillController::class,'all'])->name('admin.bill.all');
             Route::get('/enter', [App\Http\Controllers\BillController::class,'enter'])->name('admin.bill.enter');
             Route::get('/out', [App\Http\Controllers\BillController::class,'out'])->name('admin.bill.out');
@@ -38,6 +46,19 @@ Route::middleware(['auth'])->group(function () {
             Route::post('/store', [App\Http\Controllers\BillController::class,'store'])->name('admin.bill.store');
             Route::get('/edit/{id}', [App\Http\Controllers\BillController::class,'edit'])->name('admin.bill.edit');
             Route::post('/update/{id}', [App\Http\Controllers\BillController::class,'update'])->name('admin.bill.update');
+            Route::get('/destroy/{id}', [App\Http\Controllers\BillController::class,'destroy'])->name('admin.bill.destroy');
+
+        });
+
+        Route::group(['prefix'=>'clients'],function(){
+
+            // metodologia mais usual
+            Route::get('/', 'ClientController@index')->name('admin.client.index');
+            Route::get('/create', 'ClientController@create')->name('admin.client.create');
+            Route::post('/store', 'ClientController@store')->name('admin.client.store');
+            Route::get('/edit/{id}', 'ClientController@edit')->name('admin.client.edit');
+            Route::post('/update/{id}', 'ClientController@update')->name('admin.client.update');
+            Route::get('/destroy/{id}', 'ClientController@destroy')->name('admin.client.destroy');
 
         });
 
@@ -46,7 +67,3 @@ Route::middleware(['auth'])->group(function () {
 
     });
 });
-
-Route::get('/about', function () {
-    return view('about');
-})->name('about');

@@ -14,19 +14,19 @@ class BillController extends Controller
     //
     public function all()
     {
-        $bills = Bill::All();
+        $bills = Bill::Join('clients','clients.id','client_id')->where('deleted_at',null)->get();
         return view('bill.all',['bills'=>$bills]);
     }
 
     public function out()
     {
-        $bills = Bill::Where('type_id',1)->get();
+        $bills = Bill::Where('type_id',config('constants.bill.type_id.out'))->join('clients','clients.id','client_id')->where('deleted_at',null)->get();
         return view('bill.out',['bills'=>$bills]);
     }
 
     public function enter()
     {
-        $bills = Bill::Where('type_id',2)->get();
+        $bills = Bill::Where('type_id',config('constants.bill.type_id.in'))->join('clients','clients.id','client_id')->where('deleted_at',null)->get();
         return view('bill.enter',['bills'=>$bills]);
     }
     
@@ -156,7 +156,17 @@ class BillController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        $bill = Bill::findOrFail($id);
+
+        if($bill->delete()){
+            Session::flash('success','Conta deletada com sucesso');
+        }else{
+            Session::flash('danger','Falha ao deletar conta');
+        }
+
+        return redirect()->back();
+
     }
 
 }

@@ -57,7 +57,7 @@
 							<a href="{{route('admin.bill.edit',[$bill->id])}}" title="Editar" data-toggle='tooltip' class="mx-2 text-warning">
 								<i class="fas fa-pen"></i>
 							</a>
-							<a href="#" title="Excluir" data-toggle='tooltip' class="mx-2 text-danger confirm">
+							<a href="{{route('admin.bill.destroy',$bill->id)}}" title="Excluir" data-toggle='tooltip' class="mx-2 text-danger confirm">
 								<i class="fas fa-trash"></i>
 							</a>
 						</td>

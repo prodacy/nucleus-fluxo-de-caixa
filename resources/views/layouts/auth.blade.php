@@ -23,11 +23,13 @@
 </head>
 <body class="bg-gradient-dark min-vh-100 d-flex justify-content-center align-items-center">
 
-@yield('main-content')
+    @yield('main-content')
 
-<!-- Scripts -->
-<script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <!-- Scripts -->
+    <script src="{{ asset('vendor/jquery/jquery.min.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('js/animations.js') }}"></script>
+
 </body>
 </html>

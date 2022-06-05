@@ -24,4 +24,9 @@ class Helper
 		return $r;
 	}
 
+	static function coin($value)
+	{
+		return number_format($value,2,',','.');
+	}
+
 }

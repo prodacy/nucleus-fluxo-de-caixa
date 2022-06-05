@@ -2,17 +2,17 @@
 
 @section('main-content')
 
-<h1 class="h3 mb-0 text-gray-800 d-flex justify-content-start"> 
-
-	<div class="mr-auto">
-		Nova conta
-	</div>
-
-</h1>
-
-<div class="text-muted mb-3">Contas</div>
-
 <div class="container">
+
+	<h1 class="h3 mb-0 text-gray-800 d-flex justify-content-start"> 
+
+		<div class="mr-auto">
+			Nova conta
+		</div>
+
+	</h1>
+
+	<div class="text-muted mb-3">Contas</div>
 
 	@include('layouts.messages')
 	
@@ -49,7 +49,7 @@
 				<div class="col-12 col-sm-3">
 					<label>
 						Vencimento <span class="text-danger">*</span>
-						<input required class="form-control" type="date" name="due">
+						<input required class="form-control" type="date" name="due" min="{{date('Y-m-d')}}">
 					</label>
 				</div>
 				<div class="col-12 col-sm-3">

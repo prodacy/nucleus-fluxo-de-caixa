@@ -4,9 +4,19 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory , SoftDeletes;
+
+    protected $fillable = [
+        'name', 'nu_document'
+    ];
+
+    public function bills()
+    {
+        return $this->hasMany(Bill::class,'id','client_id');
+    }
 
 }

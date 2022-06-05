@@ -23,6 +23,7 @@ class BillsTableSeeder extends Seeder
 
         $types = [1,2];
         $dues = [
+            date('Y-m-d',strtotime(date('Y-m-d'). ' - 3 month ')),
             date('Y-m-d',strtotime(date('Y-m-d'). ' - 2 month ')),
             date('Y-m-d',strtotime(date('Y-m-d'). ' - 1 month ')),
             date('Y-m-d',strtotime(date('Y-m-d'). ' - 2 day ')),
@@ -31,6 +32,7 @@ class BillsTableSeeder extends Seeder
             date('Y-m-d',strtotime(date('Y-m-d'). ' + 1 day ')),
             date('Y-m-d',strtotime(date('Y-m-d'). ' + 2 day ')),
             date('Y-m-d',strtotime(date('Y-m-d'). ' + 1 month ')),
+            date('Y-m-d',strtotime(date('Y-m-d'). ' + 2 month ')),
             date('Y-m-d',strtotime(date('Y-m-d'). ' + 3 month ')),
         ];
 

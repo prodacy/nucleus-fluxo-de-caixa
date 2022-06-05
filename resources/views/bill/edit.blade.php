@@ -2,19 +2,20 @@
 
 @section('main-content')
 
-<h1 class="h3 mb-0 text-gray-800 d-flex justify-content-start"> 
+<div class="container">
+	
+	<h1 class="h3 mb-0 text-gray-800 d-flex justify-content-start"> 
 
-	<div class="mr-auto">
-		Editar conta
+		<div class="mr-auto">
+			Editar conta
+		</div>
+
+	</h1>
+
+	<div class="text-muted mb-3">
+		#id {{$bill->id}} / {{$bill->client->name}} / {{(strlen($bill->client->nu_document)==14?'CPF':'CNPJ')}}: {{$bill->client->nu_document}}
 	</div>
 
-</h1>
-
-<div class="text-muted mb-3">
-	#id {{$bill->id}} / {{$bill->client->name}} / {{(strlen($bill->client->nu_document)==14?'CPF':'CNPJ')}}: {{$bill->client->nu_document}}
-</div>
-
-<div class="container">
 
 	@include('layouts.messages')
 	

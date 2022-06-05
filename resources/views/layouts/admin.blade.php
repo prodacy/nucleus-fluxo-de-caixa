@@ -4,8 +4,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Laravel SB Admin 2">
-    <meta name="author" content="Alejandro RH">
+    <meta name="description" content="Fluxo de Caixa with Laravel">
+    <meta name="author" content="Prodacy QS">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -55,7 +55,7 @@
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; <a href="https://nucleus.eti.br/">Nucleus.eti.br</a> {{ now()->year }}</span>
+                        <span>Copyright &copy; <a href="https://nucleus.eti.br/" target="_blank">Nucleus.eti.br</a> | {{ now()->year }}</span>
                     </div>
                 </div>
             </footer>
@@ -76,18 +76,40 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Ready to Leave?') }}</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">{{ __('Está saindo?') }}</h5>
                     <button class="close" type="button" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">×</span>
                     </button>
                 </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-body">Click em "Logout" para encerrar sua sessão.</div>
                 <div class="modal-footer">
-                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancel') }}</button>
+                    <button class="btn btn-link" type="button" data-dismiss="modal">{{ __('Cancelar') }}</button>
                     <a class="btn btn-danger" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm -->
+    <div class="modal fade" id="confirm" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-warning text-white">
+                    <h5 class="modal-title" id="confirmModalLabel">Atenção</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body text-center">
+                    <h5 class="my-0 mt-3">Você tem certeza disso?</h5>
+                    <p class="mb-3 text-muted">Esta ação não poderá ser revertida.</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-link no" data-dismiss="modal">{{ __('Cancelar') }}</button>
+                    <button class="btn btn-primary yes" data-dismiss="modal">{{ __('Confirmar') }}</button>
                 </div>
             </div>
         </div>
@@ -102,9 +124,14 @@
     <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.11.2/jquery.mask.min.js" integrity="sha512-Y/GIYsd+LaQm6bGysIClyez2HGCIN1yrs94wUrHoRAD5RSURkqqVQEU6mM51O90hqS80ABFTGtiDpSXd2O05nw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="{{ asset('js/sb-admin-2.min.js') }}"></script>
     <script src="{{ asset('js/library/datatables.js') }}"></script>
     <script src="{{ asset('js/library/Api.js') }}"></script>
+    <script src="{{ asset('js/animations.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+
+    @yield('scripts')
+
 </body>
 </html>
