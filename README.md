@@ -1,30 +1,41 @@
 # Avaliação Técnica
+## Fluxo de Caixa
+
 Processo seletivo para Desenvolvedor(a) Fullstack Laravel Remoto
 nucleus.eti.br
 
+```
 1. Autenticação - Email/Senha
 2. Contas A pagar / A receber
-2.1.1. Criar conta
-2.1.1.1. Tipo
-2.1.1.1.1. A pagar
-2.1.1.1.2. A receber
-2.1.1.2. Data de vencimento
-2.1.1.2.1. Validação da data
-2.1.1.3. Valor a pagar
-2.1.1.3.1. Validação do valor
-2.1.1.4. Nome/Razão Social do Fornecedor ou Cliente
-2.1.1.5. CPF/CNPJ do Fornecedor ou Cliente
-2.1.1.5.1. Validação do CPF/CNPJ
+ 2.1.1. Criar conta
+  2.1.1.1. Tipo
+   2.1.1.1.1. A pagar
+   2.1.1.1.2. A receber
+  2.1.1.2. Data de vencimento
+   2.1.1.2.1. Validação da data
+  2.1.1.3. Valor a pagar
+   2.1.1.3.1. Validação do valor
+  2.1.1.4. Nome/Razão Social do Fornecedor ou Cliente
+  2.1.1.5. CPF/CNPJ do Fornecedor ou Cliente
+   2.1.1.5.1. Validação do CPF/CNPJ
+ 2.1.2. Listar todas as contas
+ 2.1.3. Editar uma conta
+ 2.1.4. Excluir uma conta
 
-2.1.2. Listar todas as contas
-2.1.3. Editar uma conta
-2.1.4. Excluir uma conta
-
-- Extra
+# Extra
 3. API_REST
-3.1 Authtication JWT
-3.2.1 /api/bills 
-3.2.2 /api/clients
+ 3.1 Authtication JWT
+  3.2.1 /api/auth
+  3.2.2 /api/bills 
+  3.2.3 /api/clients
+
+4. Versão PWA (Progressive Web App)
+ 4.1 Autenticação via API Rest & JWT
+ 4.2 Comportamento adaptado para Android & iOS
+
+```  
+
+---
 
 ## Requirements
 
